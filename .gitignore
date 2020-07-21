@@ -1,0 +1,6 @@
+# Virtual environments
+flipkart/*
+__pycache__/*
+
+#migrations
+migrations/*
