@@ -20,3 +20,12 @@ def add_payment():
         return True
     except:
         return False
+
+
+def view_payments():
+    user_id = request.headers.get('user_id')
+    payment_data = db.engine.execute(
+        "SELECT card_number, expiry_date, cvv FROM payments WHERE user_id=%d;"\
+            % (int(user_id))
+    )
+    return payment_data

@@ -1,5 +1,6 @@
 from flask import Blueprint
-from ..services.cart_services import add_cart
+from ..services.cart_services import *
+import json
 
 
 cart = Blueprint('cart', __name__)
@@ -22,3 +23,19 @@ def new_cart():
             "message": "Error while adding cart",
             "status": False
         })
+
+
+@cart.route('/view', methods=['GET'])
+def show_cart():
+    carts = view_cart()
+    output = []
+    for row in carts:
+        item = {}
+        item['product_name'] = row['name']
+        item['price'] = row['price']
+        item['date'] = str(row['date'])
+        output.append(item)
+    return json.dumps({
+        "message": output,
+            "status": True
+    })

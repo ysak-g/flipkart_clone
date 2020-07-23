@@ -1,5 +1,6 @@
 from flask import Blueprint
-from ..services.order_services import add_order
+from ..services.order_services import *
+import json
 
 
 order = Blueprint('order', __name__)
@@ -22,3 +23,19 @@ def new_order():
             "message": "Error while adding order",
             "status": False
         })
+
+
+@order.route('/view', methods=['GET'])
+def show_order():
+    orders = view_orders()
+    output = []
+    for row in orders:
+        item = {}
+        item['product_name'] = row['name']
+        item['price'] = row['price']
+        item['date'] = str(row['date'])
+        output.append(item)
+    return json.dumps({
+        "message": output,
+            "status": True
+    })

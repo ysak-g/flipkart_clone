@@ -7,3 +7,4 @@ class ProductModel(db.Model):
     name = db.Column(db.String(50))
     category_id = db.Column(db.Integer)
     owner_id = db.Column(db.Integer)
+    price = db.Column(db.Integer, nullable=False)

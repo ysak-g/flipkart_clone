@@ -1,5 +1,6 @@
 from flask import Blueprint
-from ..services.payment_services import add_payment
+from ..services.payment_services import *
+import json
 
 
 payment = Blueprint('payment', __name__)
@@ -22,3 +23,19 @@ def new_payment():
             "message": "Error while adding payment",
             "status": False
         })
+
+
+@payment.route('/view', methods=['GET'])
+def show_payment():
+    payments = view_payments()
+    output = []
+    for row in payments:
+        item = {}
+        item['card_number'] = row['card_number']
+        item['expiry_date'] = str(row['expiry_date'])
+        item['cvv'] = str(row['cvv'])
+        output.append(item)
+    return json.dumps({
+        "message": output,
+            "status": True
+    })
