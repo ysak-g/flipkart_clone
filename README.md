@@ -1,7 +1,11 @@
 # Flipkart Clone
-This is a basic clone of Flipkart. It allows you to manage products, user, orders, wishlists, payment etc.
 
-## How to run?
-* Create a `virtualenv`
-* Install the dependencies in `requirements.txt` by `pip install -r requirements.txt`
-* Run the `flask` application by `flask run`
+A backend clone of Flipkart with basic functionalities like for users, products, categories, orders, wishlist, etc.
+
+## Guides & Processes
+
+---
+
+[Getting Started](https://www.notion.so/Getting-Started-89210cbb079943c68c8b57bff0d5dc22)
+
+[How does the application work?](https://www.notion.so/How-does-the-application-work-ccebaa22cc65493d8cea803f109fdf89)
