@@ -2,9 +2,9 @@
 
 A backend clone of Flipkart with basic functionalities like for users, products, categories, orders, wishlist, etc.
 
-## Guides & Processes
+# Guides & Processes
 
-# Getting Started
+## Getting Started
 
 Please follow the steps for running the Flask application.
 
@@ -15,7 +15,7 @@ Please follow the steps for running the Flask application.
     - `export FLASK_APP=[server.py](http://server.py/)`
     - `flask run`
 
-# How does the application work?
+## How does the application work?
 
 The application is using Flask and MySQL as database. 
 
