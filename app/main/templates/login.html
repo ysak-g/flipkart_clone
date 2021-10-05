@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+        <div class="container">
+            <form name="login" method="post" action="" novalidate>
+                <fieldset class="form-group">
+                    <legend>{{ title }}</legend>
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.email.label }} <br>
+                        {{ form.email(size=35) }}
+                    </p>
+        
+                    <p>
+                        {{ form.password.label }} <br>
+                        {{ form.password(size=15) }}
+                    </p>
+    
+                    <p>
+                        {{ form.remember_me }} {{ form.remember_me.label }}
+                    </p>
+    
+                    <p>
+                        {{ form.submit() }} &nbsp;&nbsp; <a href="{{ url_for('user.new_user')}}">Sign Up</a>
+                    </p>
+        
+                </fieldset>
+
+            </form>
+        </div>
+
+{% endblock %}

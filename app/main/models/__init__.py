@@ -5,3 +5,5 @@ from . import ProductModel
 from . import CartModel
 from . import CommentModel
 from . import WishListModel
+from . import UserAddressModel
+from . import AddressModel

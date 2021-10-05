@@ -24,7 +24,7 @@ def view_orders():
     user_id = request.headers.get('user_id')
     order_data = db.engine.execute(
         "SELECT products.name,products.price,date FROM orders JOIN products \
-            ON orders.product_id=products.id WHERE orders.user_id=%d"\
+            ON orders.product_id=products.id WHERE orders.user_id=%d" \
                  % (int(user_id))
     )
     return order_data
