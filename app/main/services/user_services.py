@@ -1,6 +1,6 @@
 from ..models.UserModel import UserModel, db
 from sqlalchemy import exc
-from flask import request,redirect, flash
+from flask import request, redirect, flash
 import json
 
 
@@ -53,10 +53,23 @@ def login(form):
         user_email = UserModel.query.filter_by(email=email).first()
         user_pwd = UserModel.query.filter_by(password=password).first()
         if user_email and user_pwd:
+            user_name = user_email.name
+            user_id = user_email.id
+            user_type = user_email.role
+            user_mobile = user_email.mobile
+            user_mail = user_email.email
+            # payload = {"user_name": user_name, "user_id": user_id, "user_type": user_type}
+            # encode_jwt = jwt.encode(payload, app.config['SECRET_KEY'])
             return json.dumps({
-                "message": "Login successfully",
+                "message": user_name + ", you are logged in successfully",
                 "status": True,
-                "category": "success"
+                "category": "success",
+                "user_type": user_type,
+                "user_name": user_name,
+                "user_id": user_id,
+                "user_mobile": user_mobile,
+                "user_email": user_mail
+                # "auth_token": encode_jwt
             })
         elif user_email and not user_pwd:
             return json.dumps({

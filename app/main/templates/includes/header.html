@@ -24,12 +24,21 @@
             </button>
           </from>
           <div class="user_option_box">
-            <a href="{{ url_for('user.user_login') }}" class="account-link">
+            <!-- <a href="{{ url_for('user.user_login') }}" class="account-link"> -->
+            <a href="{{ url_for('user.user_profile') }}" class="account-link">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
                 My Account
               </span>
             </a>
+            {% if session['user_name'] %}
+              <a href="{{ url_for('user.user_logout') }}" class="account-link">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Sign Out
+                  </span>
+                </a>
+            {% endif %}
             <a href="{{ url_for('cart.show_cart') }}" class="cart-link">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <span>
@@ -57,10 +66,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="{{ url_for('about.home') }}"> About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="product.html">Products</a>

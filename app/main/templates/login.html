@@ -1,32 +1,39 @@
 {% extends "layout.html" %}
   
 {% block content %}
-        <div class="container">
-            <form name="login" method="post" action="" novalidate>
-                <fieldset class="form-group">
-                    <legend>{{ title }}</legend>
-                    {{ form.hidden_tag() }}
-                    <p>
-                        {{ form.email.label }} <br>
-                        {{ form.email(size=35) }}
-                    </p>
-        
-                    <p>
-                        {{ form.password.label }} <br>
-                        {{ form.password(size=15) }}
-                    </p>
-    
-                    <p>
-                        {{ form.remember_me }} {{ form.remember_me.label }}
-                    </p>
-    
-                    <p>
-                        {{ form.submit() }} &nbsp;&nbsp; <a href="{{ url_for('user.new_user')}}">Sign Up</a>
-                    </p>
-        
-                </fieldset>
 
-            </form>
+<div class="login-wrap">
+    <div class="login-html">
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <form method="post" action="" novalidate>
+                        <fieldset class="group">
+                            <legend class="sign-up tab">{{ title }}</legend>
+                            {{ form.hidden_tag() }}
+                            <div class="group label">
+                                {{ form.email.label }} <br>
+                                {{ form.email(size=25) }}
+                            </div>
+                            <div class="group label">
+                                {{ form.password.label }} <br>
+                                {{ form.password(size=25) }}
+                            </div>
+                            <div class="group sign-in">
+                                {{ form.remember_me }} {{ form.remember_me.label }}
+                            </div>
+                            <div class="group">
+                                {{ form.submit(class="button") }} 
+                            </div>
+                            <div class="group sign-in">
+                                <p>New User? <a href="{{ url_for('user.new_user')}}">Sign Up</a> here.</p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 
 {% endblock %}

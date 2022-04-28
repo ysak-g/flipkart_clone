@@ -1,66 +1,79 @@
 {% extends "layout.html" %}
   
 {% block content %}
-        <div class="container form">
-            <form name="register" method="post" action="" novalidate>
-                <fieldset class="form-group">
-                    <legend>{{ title }}</legend>
-                    {{ form.hidden_tag() }}
-                    <p>
-                            {{ form.user_name.label }} <br>
-                            {{ form.user_name(size=35) }}
-                            {% for error in form.user_name.errors %}
-                                <span class="error-message">
-                                    {{ error }}
-                                </span>
-                            {% endfor %}
-                    </p>
-        
-                    <p>
-                        {{ form.mobile.label }} <br>
-                        {{ form.mobile(size=10) }}
-                        {% for error in form.mobile.errors %}
-                            <span class="error-message">
-                                {{ error }}
-                            </span>
-                        {% endfor %}
-                    </p>
-    
-                    <p>
-                        {{ form.email.label }} <br>
-                        {{ form.email(size=40) }}
-                        {% for error in form.email.errors %}
-                            <span class="error-message">
-                                {{ error }}
-                            </span>
-                        {% endfor %}
-                    </p>
-    
-                    <p>
-                        {{ form.password.label }} <br>
-                        {{ form.password(size=15) }}
-                        {% for error in form.password.errors %}
-                            <span class="error-message">
-                                {{ error }}
-                            </span>
-                        {% endfor %}
-                    </p>
-    
-                    <p>
-                        {{ form.confirm_password.label }} <br>
-                        {{ form.confirm_password(size=15) }}
-                        {% for error in form.confirm_password.errors %}
-                            <span class="error-message">
-                                {{ error }}
-                            </span>
-                        {% endfor %}
-                    </p>
-                    <p>
-                            {{ form.submit() }} 
-                    </p>
-                
-                </fieldset>
-            </form>
+        <div class="login-wrap">
+            <div class="login-html">
+                <div class="login-form">
+                    <div class="sign-up-htm">
+                        <div class="group">
+                            <form method="post" action="" novalidate>
+                                <fieldset class="group">
+                                    <legend class="sign-up tab">{{ title }}</legend>
+                                    {{ form.hidden_tag() }}
+                                    <div class="group">
+                                        <div class="label">
+                                            {{ form.user_name.label }} <br>
+                                            {{ form.user_name(size=30) }}
+                                        </div>
+                                        {% for error in form.user_name.errors %}
+                                            <small class="text-danger">
+                                                {{ error }}
+                                            </small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="group">
+                                        <div class="label">
+                                            {{ form.mobile.label }} <br>
+                                            {{ form.mobile(size=30) }}
+                                        </div>
+                                        {% for error in form.mobile.errors %}
+                                            <small class="text-danger">
+                                                {{ error }}
+                                            </small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="group">
+                                        <div class="label">
+                                            {{ form.email.label }} <br>
+                                            {{ form.email(size=30) }}
+                                        </div>
+                                        {% for error in form.email.errors %}
+                                            <small class="text-danger">
+                                                {{ error }}
+                                            </small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="group">
+                                        <div class="label">
+                                            {{ form.password.label }} <br>
+                                            {{ form.password(size=30) }}
+                                        </div>
+                                        {% for error in form.password.errors %}
+                                            <small class="text-danger">
+                                                {{ error }}
+                                            </small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="group">
+                                        <div class="label">
+                                            {{ form.confirm_password.label }} <br>
+                                            {{ form.confirm_password(size=30) }}
+                                        </div>
+                                        {% for error in form.confirm_password.errors %}
+                                            <small class="text-danger">
+                                                {{ error }}
+                                            </small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="group">
+                                            {{ form.submit(class="button") }}
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 {% endblock %}
